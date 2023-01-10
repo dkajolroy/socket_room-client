@@ -1,9 +1,22 @@
 import "./App.css";
 import { io } from "socket.io-client";
+import { useState } from "react";
+import AuthPage from "./Components/AuthPage";
+import ChatPage from "./Components/ChatPage";
 const socket = io("http://localhost:5000");
 
 function App() {
-  return <div className="App">OK</div>;
+  const [data, setData] = useState({ name: "", room: null });
+
+  const submitJoin = () => {
+    console.log(data);
+  };
+  return (
+    <div className="container-fluid">
+      {/* <AuthPage onClick={submitJoin} setData={setData} /> */}
+      <ChatPage />
+    </div>
+  );
 }
 
 export default App;
